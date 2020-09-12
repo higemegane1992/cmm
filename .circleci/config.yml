@@ -1,0 +1,105 @@
+version: 2.1
+
+orbs:
+  ruby: circleci/ruby@1.1.0
+  node: circleci/node@2
+  # aws-ecr: circleci/aws-ecr@6.7.0
+  # aws-ecs: circleci/aws-ecs@1.1.0
+
+jobs:
+  build:
+    docker:
+      - image: cimg/ruby:2.7.1-node
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+  test:
+    parallelism: 3
+    docker:
+      - image: cimg/ruby:2.7.1-node
+      - image: circleci/postgres:12.2
+        environment:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: ccm_test
+          POSTGRES_PASSWORD: "password"
+    environment:
+      BUNDLE_JOBS: "3"
+      BUNDLE_RETRY: "3"
+      PGHOST: 127.0.0.1
+      PGUSER: ccm_test
+      PGPASSWORD: "password"
+      RAILS_ENV: test
+    steps:
+      - checkout
+      - ruby/install-deps
+      - node/install-packages:
+          pkg-manager: yarn
+          cache-key: "yarn.lock"
+      - run:
+          name: Wait for DB
+          command: dockerize -wait tcp://localhost:5432 -timeout 1m
+      - run:
+          name: Database setup
+          command: bundle exec rails db:schema:load --trace
+      - ruby/rspec-test
+      - ruby/rubocop-check
+
+workflows:
+  version: 2
+  nginx-deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      # - aws-ecr/build-and-push-image:
+      #     requires:
+      #       - test
+      #     account-url: AWS_ECR_ACCOUNT_URL
+      #     region: AWS_REGION
+      #     aws-access-key-id: AWS_ACCESS_KEY_ID
+      #     aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+      #     create-repo: true
+      #     dockerfile: ./docker/nginx/Dockerfile
+      #     repo: ccm-ecr
+      #     tag: "${CIRCLE_SHA1}"
+      #     filters:
+      #       branches:
+      #         only: master
+      # - aws-ecs/deploy-service-update:
+      #     requires:
+      #       - aws-ecr/build-and-push-image
+      #     family: 'ccm-td'
+      #     cluster-name: '${ECS_ARN}'
+      #     service-name: 'ccm-sv'
+      #     container-image-name-updates: "container=ccm-nginx-ecr,tag=${CIRCLE_SHA1}"
+  rails-deploy:
+    jobs:
+      - build
+      - test:
+          requires:
+            - build
+      # - aws-ecr/build-and-push-image:
+      #     requires:
+      #       - test
+      #     account-url: AWS_ECR_ACCOUNT_URL
+      #     region: AWS_REGION
+      #     aws-access-key-id: AWS_ACCESS_KEY_ID
+      #     aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+      #     create-repo: true
+      #     dockerfile: ./docker/rails/Dockerfile
+      #     repo: ccm-rails-ecr
+      #     tag: "${CIRCLE_SHA1}"
+      #     filters:
+      #       branches:
+      #         only: master
+      # - aws-ecs/deploy-service-update:
+      #     requires:
+      #       - aws-ecr/build-and-push-image
+      #     family: 'ccm-td'
+      #     cluster-name: '${ECS_ARN}'
+      #     service-name: 'ccm-sv'
+      #     container-image-name-updates: "container=ccm-rails-ecr,tag=${CIRCLE_SHA1}"
