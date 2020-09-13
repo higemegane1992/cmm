@@ -1,1 +1,3 @@
 <%= @machine.name %>
+<%= link_to '編集', edit_machine_path %>
+<%= link_to '削除', machine_path(@machine), method: :delete %>
