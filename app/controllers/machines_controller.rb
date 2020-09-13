@@ -15,6 +15,10 @@ class MachinesController < ApplicationController
     redirect_to machines_path, notice: '新しい生産ラインが登録されました'
   end
 
+  def show
+    @machine = Machine.find(params[:id])
+  end
+
   private
 
   def machine_params
