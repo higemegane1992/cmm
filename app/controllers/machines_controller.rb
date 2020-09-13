@@ -29,6 +29,12 @@ class MachinesController < ApplicationController
     redirect_to machine_path, notice: '登録内容が更新されました'
   end
 
+  def destroy
+    machine = Machine.find(params[:id])
+    machine.destroy
+    redirect_to machines_path, notice: '生産ラインが削除されました'
+  end
+
   private
 
   def machine_params
