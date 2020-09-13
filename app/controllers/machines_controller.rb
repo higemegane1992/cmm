@@ -19,6 +19,16 @@ class MachinesController < ApplicationController
     @machine = Machine.find(params[:id])
   end
 
+  def edit
+    @machine = Machine.find(params[:id])
+  end
+
+  def update
+    machine = Machine.find(params[:id])
+    machine.update(machine_params)
+    redirect_to machine_path, notice: '登録内容が更新されました'
+  end
+
   private
 
   def machine_params
