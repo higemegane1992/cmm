@@ -1,7 +1,7 @@
 <% provide(:title, "#{@machine.name}号機") %>
 <div class="card mb-3">
   <div class="card-body">
-    生産ライン：<%= @machine.name %>号機
+    <p class="card-text">生産ライン：<%= @machine.name %>号機</p>
     <div class="d-flex justify-content-end">
       <%= link_to edit_machine_path, class: "btn btn-outline-secondary" do %>
         <i class="fas fa-edit"></i>
