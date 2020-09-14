@@ -1,4 +1,12 @@
-<%= form_with(model: @machine, local: true) do |f| %>
-  <%= f.text_field :name, placeholder: "1-1" %>
-  <%= f.submit "新規登録" %>
+<% provide(:title, "生産ラインの新規登録") %>
+<%= form_with(model: @machine, local: true, class: "card mb-3") do |f| %>
+  <div class="card-body">
+    <div class="form-group">
+      <%= f.label "生産ライン", for: "machine"%>
+      <%= f.text_field :name, placeholder: "1-1", id: "machine", class: "form-control" %>
+    </div>
+    <div class="d-flex justify-content-end">
+      <%= f.submit "新規登録", class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
 <% end %>

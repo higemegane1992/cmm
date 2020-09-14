@@ -10,6 +10,7 @@ class MachinesController < ApplicationController
 
   def new
     @machine = Machine.new
+    add_breadcrumb "新規登録"
   end
 
   def create
@@ -19,11 +20,13 @@ class MachinesController < ApplicationController
 
   def show
     @machine = Machine.find(params[:id])
-    add_breadcrumb "#{@machine.name}号機", :machine_path
+    add_breadcrumb "#{@machine.name}号機"
   end
 
   def edit
     @machine = Machine.find(params[:id])
+    add_breadcrumb "#{@machine.name}号機", :machine_path
+    add_breadcrumb "編集"
   end
 
   def update
