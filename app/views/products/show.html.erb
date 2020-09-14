@@ -1,0 +1,17 @@
+<% provide(:title, @product.name) %>
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text">品番：<%= @product.number %></p>
+    <p class="card-text">品名：<%= @product.name %></p>
+    <div class="d-flex justify-content-end">
+      <%= link_to edit_product_path, class: "btn btn-outline-secondary" do %>
+        <i class="fas fa-edit"></i>
+        編集
+      <% end %>
+      <%= link_to product_path(@product), method: :delete, class: "btn btn-outline-danger ml-2" do %>
+        <i class="fas fa-trash-alt"></i>
+        削除
+      <% end %>
+    </div>
+  </div>
+</div>

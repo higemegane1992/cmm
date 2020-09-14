@@ -1,0 +1,12 @@
+<% provide(:title, "品種一覧") %>
+<div class="d-flex justify-content-end">
+  <%= link_to new_product_path, class: "btn btn-sm btn-outline-secondary mb-3" do %>
+    <i class="fas fa-plus"></i>
+    品種の新規登録
+  <% end %>
+</div>
+<div class="list-group mb-3">
+  <% @products.each do |product| %>
+    <%= link_to product.name, product_path(product), class: "list-group-item list-group-item-action" %>
+  <% end %>
+</div>

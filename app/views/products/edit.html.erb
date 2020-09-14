@@ -1,0 +1,16 @@
+<% provide(:title, "#{@product.name}の編集") %>
+<%= form_with(model: @product, local: true, class: "card mb-3") do |f| %>
+  <div class="card-body">
+    <div class="form-group">
+      <%= f.label "品番", for: "number"%>
+      <%= f.text_field :number, placeholder: "000000-00000", id: "number", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label "品名", for: "name"%>
+      <%= f.text_field :name, placeholder: "00000", id: "name", class: "form-control" %>
+    </div>
+    <div class="d-flex justify-content-end">
+      <%= f.submit "更新", class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>

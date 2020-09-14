@@ -26,8 +26,8 @@
           <li class="nav-item <%= "active" if controller.controller_name == "" %>">
             <%= link_to "金型", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item <%= "active" if controller.controller_name == "" %>">
-            <%= link_to "品種", "#", class: "nav-link" %>
+          <li class="nav-item <%= "active" if controller.controller_name == "products" %>">
+            <%= link_to "品種", products_path, class: "nav-link" %>
           </li>
           <li class="nav-item <%= "active" if controller.controller_name == "machines" %>">
             <%= link_to "生産ライン", machines_path, class: "nav-link" %>
@@ -42,7 +42,7 @@
             <%= link_to "ロギングデータ", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
             <%= link_to "条件表", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
             <%= link_to "金型", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
-            <%= link_to "品種", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
+            <%= link_to "品種", products_path, class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == "products"}" %>
             <%= link_to "生産ライン", machines_path, class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == "machines"}" %>
           </aside>
         </div>
