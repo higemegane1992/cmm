@@ -1,10 +1,10 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
 
-main {
+.pt-56px {
   padding-top: 56px;
 }
 
-section {
+main {
   min-height: calc(100vh - 136px);
 }

@@ -17,35 +17,37 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto d-md-none">
-          <li class="nav-item">
-            <%= link_to "ロギングデータ", machines_path, class: "nav-link" %>
+          <li class="nav-item <%= "active" if controller.controller_name == "" %>">
+            <%= link_to "ロギングデータ", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "条件表", machines_path, class: "nav-link" %>
+          <li class="nav-item <%= "active" if controller.controller_name == "" %>">
+            <%= link_to "条件表", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "金型", machines_path, class: "nav-link" %>
+          <li class="nav-item <%= "active" if controller.controller_name == "" %>">
+            <%= link_to "金型", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item">
-            <%= link_to "品種", machines_path, class: "nav-link" %>
+          <li class="nav-item <%= "active" if controller.controller_name == "" %>">
+            <%= link_to "品種", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item">
+          <li class="nav-item <%= "active" if controller.controller_name == "machines" %>">
             <%= link_to "生産ライン", machines_path, class: "nav-link" %>
           </li>
         </ul>
       </div>
     </nav>
     <div class="container-fluid">
-      <main class="row vh-100">
-        <div class="d-none d-md-block w-25 list-group list-group-flush bg-light border-right">
-            <%= link_to "ロギングデータ", machines_path, class: "list-group-item list-group-item-action bg-light" %>
-            <%= link_to "条件表", machines_path, class: "list-group-item list-group-item-action bg-light" %>
-            <%= link_to "金型", machines_path, class: "list-group-item list-group-item-action bg-light" %>
-            <%= link_to "品種", machines_path, class: "list-group-item list-group-item-action bg-light" %>
-            <%= link_to "生産ライン", machines_path, class: "list-group-item list-group-item-action bg-light" %>
+      <div class="row vh-100 pt-56px">
+        <div class="d-none d-md-block w-25 bg-light border-right">
+          <aside class="list-group list-group-flush">
+            <%= link_to "ロギングデータ", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
+            <%= link_to "条件表", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
+            <%= link_to "金型", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
+            <%= link_to "品種", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
+            <%= link_to "生産ライン", machines_path, class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == "machines"}" %>
+          </aside>
         </div>
         <div class="col-sm-12 col-md-9 h-100 overflow-auto">
-          <section class="mb-4">
+          <main class="mb-4">
             <h1 class="h2 pt-3 pb-2 mb-3 border-bottom"><%= yield(:title) %></h1>
             <div class="px-3 py-1 mb-3 bg-light border rounded-pill">
               <%= render_breadcrumbs separator: " / " %>
@@ -59,7 +61,7 @@
               </div>
             <% end %>
             <%= yield %>
-          </section>
+          </main>
           <footer class="row justify-content-center align-items-center bg-secondary">
             <%= link_to "https://github.com/higemegane1992/cmm", class: "text-white py-3", target: :_blank do %>
               <i class="fab fa-github"></i>
@@ -67,7 +69,7 @@
             <% end %>
           </footer>
         </div>
-      </main>
+      </div>
     </div>
   </body>
 </html>
