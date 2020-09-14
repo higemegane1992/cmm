@@ -1,3 +1,10 @@
-<%= @machine.name %>
-<%= link_to '編集', edit_machine_path %>
-<%= link_to '削除', machine_path(@machine), method: :delete %>
+<% provide(:title, "#{@machine.name}号機") %>
+<div class="card mb-3">
+  <div class="card-body">
+    生産ライン：<%= @machine.name %>号機
+    <div class="d-flex justify-content-end">
+      <%= link_to "編集", edit_machine_path, class: "btn btn-outline-secondary" %>
+      <%= link_to "削除", machine_path(@machine), method: :delete, class: "btn btn-outline-danger ml-2" %>
+    </div>
+  </div>
+</div>
