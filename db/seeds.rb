@@ -7,7 +7,10 @@
 end
 
 15.times do |num|
-  Product.create(number: "000000-000#{sprintf("%02d", num + 1)}", name: "000#{sprintf("%02d", num + 1)}")
+  Product.create(
+    number: "000000-000#{format('%<foo>02d', foo: num + 1)}",
+    name: "000#{format('%<foo>02d', foo: num + 1)}"
+  )
 end
 
 15.times do |i|

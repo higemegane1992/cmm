@@ -4,6 +4,6 @@
 class Mold < ApplicationRecord
   validates :product_id, presence: true, uniqueness: { scope: :number }
   validates :number, presence: true
-  
+
   belongs_to :product
 end

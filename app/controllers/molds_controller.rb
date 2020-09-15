@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Molds controller class
 class MoldsController < ApplicationController
   add_breadcrumb '品種一覧', :products_path
