@@ -3,6 +3,19 @@
   <div class="card-body">
     <p class="card-text">品番：<%= @product.number %></p>
     <p class="card-text">品名：<%= @product.name %></p>
+    <p class="card-text">金型：
+      <% @product.molds.each_with_index do |mold, i| %>
+        <% unless i == @product.molds.length - 1 %>
+          <%= link_to mold.number, product_mold_path(@product, mold) %>, 
+        <% else %>
+          <%= link_to mold.number, product_mold_path(@product, mold) %>次型
+        <% end %>
+      <% end %>
+      <%= link_to new_product_mold_path(@product), class: "badge badge-secondary ml-2" do %>
+        <i class="fas fa-plus"></i>
+        金型の新規登録
+      <% end %>
+    </p>
     <div class="d-flex justify-content-end">
       <%= link_to edit_product_path, class: "btn btn-outline-secondary" do %>
         <i class="fas fa-edit"></i>
