@@ -1,0 +1,13 @@
+<% provide(:title, "#{@mold.number}次型") %>
+<div class="card mb-3">
+  <div class="card-body">
+    <p class="card-text">金型：<%= @mold.number %>次型</p>
+    <div class="d-flex justify-content-between">
+      <%= link_to "戻る", :back, class: "btn btn-link" %>
+      <%= link_to product_mold_path(@product, @mold), method: :delete, class: "btn btn-outline-danger" do %>
+        <i class="fas fa-trash-alt"></i>
+        削除
+      <% end %>
+    </div>
+  </div>
+</div>
