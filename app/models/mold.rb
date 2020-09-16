@@ -6,4 +6,5 @@ class Mold < ApplicationRecord
   validates :number, presence: true
 
   belongs_to :product
+  has_many :conditions
 end
