@@ -19,11 +19,11 @@ end
   end
 end
 
-15.times do |i|
-  6.times do |j|
+30.times do |i|
+  3.times do |j|
     Condition.create(
       machine_id: i + 1,
-      mold_id: j + 1,
+      mold_id: i * 3 + j + 1,
       lis: 0.25,
       lis_u: 0.3,
       lis_l: 0.2,
