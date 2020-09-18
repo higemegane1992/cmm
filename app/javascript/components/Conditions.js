@@ -98,10 +98,10 @@ class Conditions extends React.Component {
                     <td className="text-center">{condition.mold}次型</td>
                     <td className="text-center">
                       <a href={condition.show}>
-                        <i class="fas fa-external-link-alt"></i>
+                        <i className="fas fa-external-link-alt"></i>
                       </a>
                       <a className="ml-2" href={condition.edit  }>
-                        <i class="fas fa-edit"></i>
+                        <i className="fas fa-edit"></i>
                       </a>
                     </td>
                   </tr>
