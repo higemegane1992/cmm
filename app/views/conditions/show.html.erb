@@ -1,0 +1,201 @@
+<% provide(:title, "#{@condition.machine.name}号機 #{@condition.mold.product.name} #{@condition.mold.number}次型 条件表") %>
+<div class="card mb-3">
+  <div class="card-body">
+    <div class="row">
+      <label class="col-4">生産ライン</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.machine.name %>号機</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">品番</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.mold.product.number %></p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">品名</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.mold.product.name %></p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">金型</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.mold.number %>次型</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">低速速度 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.lis %> m/s</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">低速速度 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.lis_u %> m/s</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">低速速度 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.lis_l %> m/s</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">高速速度 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.his %> m/s</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">高速速度 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.his_u %> m/s</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">高速速度 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.his_l %> m/s</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">高速切替位置 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.sup %> mm</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">高速切替位置 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.sup_u %> mm</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">高速切替位置 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.sup_l %> mm</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">鋳造圧力 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.cp %> MPa</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">鋳造圧力 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.cp_u %> MPa</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">鋳造圧力 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.cp_l %> MPa</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">昇圧時間 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.bt %> ms</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">昇圧時間 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.bt_u %> ms</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">昇圧時間 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.bt_l %> ms</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">真空開始位置 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.ssp %> mm</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">真空開始位置 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.ssp_u %> mm</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">真空開始位置 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.ssp_l %> mm</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">真空度 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.dev %> torr</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">真空度 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.dev_u %> torr</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">真空度 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.dev_l %> torr</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">固定型冷却流量 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.fmf %> ml</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">固定型冷却流量 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.fmf_u %> ml</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">固定型冷却流量 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.fmf_l %> ml</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">可動型冷却流量 設定値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.mmf %> ml</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">可動型冷却流量 上限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.mmf_u %> ml</p>
+      </div>
+    </div>
+    <div class="row">
+      <label class="col-4">可動型冷却流量 下限値</label>
+      <div class="col-8">
+        <p class="card-text"><%= @condition.mmf_l %> ml</p>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <%= link_to edit_condition_path, class: "btn btn-outline-secondary" do %>
+        <i class="fas fa-edit"></i>
+        編集
+      <% end %>
+      <%= link_to condition_path(@condition), method: :delete, class: "btn btn-outline-danger ml-2" do %>
+        <i class="fas fa-trash-alt"></i>
+        削除
+      <% end %>
+    </div>
+  </div>
+</div>
