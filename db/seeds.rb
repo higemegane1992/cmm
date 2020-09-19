@@ -54,3 +54,25 @@ end
     )
   end
 end
+
+7.times do |i|
+  30.times do |j|
+    48.times do |k|
+      Log.create(
+        machine_id: j + 1,
+        mold_id: i % 3 + j * 3 + 1,
+        lis: 0.25,
+        his: 3,
+        sup: 380,
+        cp: 40,
+        bt: 500,
+        ssp: 150,
+        dev: 100,
+        fmf: 50,
+        mmf: 50,
+        created_at: Time.parse('2020/09/15 00:00:00') + i * 60 * 60 * 24 + k * 60 * 30,
+        updated_at: Time.parse('2020/09/15 00:00:00') + i * 60 * 60 * 24 + k * 60 * 30
+      )
+    end
+  end
+end
