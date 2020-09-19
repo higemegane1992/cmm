@@ -908,6 +908,7 @@ Layout/LineLength:
   IgnoredPatterns: []
   Exclude:
     - 'bin/bundle'
+    - 'app/controllers/conditions_controller.rb'
 
 Layout/MultilineArrayBraceLayout:
   Description: >-
@@ -2024,6 +2025,7 @@ Metrics/AbcSize:
   Max: 17
   Exclude:
     - 'db/migrate/20200916115557_create_conditions.rb'
+    - 'app/controllers/conditions_controller.rb'
 
 Metrics/BlockLength:
   Description: 'Avoid long blocks with many lines.'
@@ -2087,6 +2089,7 @@ Metrics/MethodLength:
   Exclude:
     - 'bin/bundle'
     - 'db/migrate/20200916115557_create_conditions.rb'
+    - 'db/migrate/20200919104007_create_logs.rb'
 
 Metrics/ModuleLength:
   Description: 'Avoid modules longer than 100 lines of code.'
