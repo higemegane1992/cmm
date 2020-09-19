@@ -1,0 +1,182 @@
+<% provide(:title, "条件表の新規登録") %>
+<%= form_with(model: @condition, local: true, class: "card mb-3") do |f| %>
+  <div class="card-body">
+    <div class="form-group row">
+      <%= f.label "生産ライン", for: "machine_id", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.collection_select :machine_id, Machine.all, :id, :name, {prompt: "選択してください"}, {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "品名・金型", for: "mold_id", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.select :mold_id, @product_mold_lists, {include_blank: '選択してください'}, {class: 'form-control'} %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "低速速度 設定値", for: "lis", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :lis, placeholder: "0.25", id: "lis", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "低速速度 上限値", for: "lis_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :lis_u, placeholder: "0.3", id: "lis_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "低速速度 下限値", for: "lis_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :lis_l, placeholder: "0.2", id: "lis_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "高速速度 設定値", for: "his", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :his, placeholder: "3", id: "his", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "高速速度 上限値", for: "his_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :his_u, placeholder: "3.3", id: "his_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "高速速度 下限値", for: "his_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :his_l, placeholder: "2.7", id: "his_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "高速切替位置 設定値", for: "sup", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :sup, placeholder: "380", id: "sup", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "高速切替位置 上限値", for: "sup_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :sup_u, placeholder: "385", id: "sup_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "高速切替位置 下限値", for: "sup_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :sup_l, placeholder: "375", id: "sup_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "鋳造圧力 設定値", for: "cp", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :cp, placeholder: "40", id: "cp", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "鋳造圧力 上限値", for: "cp_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :cp_u, placeholder: "45", id: "cp_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "鋳造圧力 下限値", for: "cp_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :cp_l, placeholder: "35", id: "cp_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "昇圧時間 設定値", for: "bt", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :bt, placeholder: "500", id: "bt", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "昇圧時間 上限値", for: "bt_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :bt_u, placeholder: "1000", id: "bt_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "昇圧時間 下限値", for: "bt_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :bt_l, placeholder: "0", id: "bt_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "真空開始位置 設定値", for: "ssp", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :ssp, placeholder: "150", id: "ssp", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "真空開始位置 上限値", for: "ssp_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :ssp_u, placeholder: "155", id: "ssp_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "真空開始位置 下限値", for: "ssp_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :ssp_l, placeholder: "145", id: "ssp_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "真空度 設定値", for: "dev", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :dev, placeholder: "100", id: "dev", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "真空度 上限値", for: "dev_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :dev_u, placeholder: "120", id: "dev_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "真空度 下限値", for: "dev_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :dev_l, placeholder: "80", id: "dev_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "固定型冷却流量 設定値", for: "fmf", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :fmf, placeholder: "50", id: "fmf", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "固定型冷却流量 上限値", for: "fmf_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :fmf_u, placeholder: "60", id: "fmf_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "固定型冷却流量 下限値", for: "fmf_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :fmf_l, placeholder: "40", id: "fmf_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "可動型冷却流量 設定値", for: "mmf", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :mmf, placeholder: "50", id: "mmf", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "可動型冷却流量 上限値", for: "mmf_u", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :mmf_u, placeholder: "60", id: "mmf_u", class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label "可動型冷却流量 下限値", for: "mmf_l", class: "col-4 col-form-label" %>
+      <div class="col-8">
+        <%= f.text_field :mmf_l, placeholder: "40", id: "mmf_l", class: "form-control" %>
+      </div>
+    </div>
+    <div class="d-flex justify-content-end">
+      <%= f.submit "新規登録", class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+<% end %>

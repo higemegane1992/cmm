@@ -12,9 +12,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_914_155_209) do
+ActiveRecord::Schema.define(version: 20_200_916_115_557) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
+
+  create_table 'conditions', force: :cascade do |t|
+    t.bigint 'machine_id', null: false
+    t.bigint 'mold_id', null: false
+    t.decimal 'lis', null: false
+    t.decimal 'lis_u', null: false
+    t.decimal 'lis_l', null: false
+    t.decimal 'his', null: false
+    t.decimal 'his_u', null: false
+    t.decimal 'his_l', null: false
+    t.integer 'sup', null: false
+    t.integer 'sup_u', null: false
+    t.integer 'sup_l', null: false
+    t.integer 'cp', null: false
+    t.integer 'cp_u', null: false
+    t.integer 'cp_l', null: false
+    t.integer 'bt', null: false
+    t.integer 'bt_u', null: false
+    t.integer 'bt_l', null: false
+    t.integer 'ssp', null: false
+    t.integer 'ssp_u', null: false
+    t.integer 'ssp_l', null: false
+    t.integer 'dev', null: false
+    t.integer 'dev_u', null: false
+    t.integer 'dev_l', null: false
+    t.integer 'fmf', null: false
+    t.integer 'fmf_u', null: false
+    t.integer 'fmf_l', null: false
+    t.integer 'mmf', null: false
+    t.integer 'mmf_u', null: false
+    t.integer 'mmf_l', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index %w[machine_id mold_id], name: 'index_conditions_on_machine_id_and_mold_id', unique: true
+    t.index ['machine_id'], name: 'index_conditions_on_machine_id'
+    t.index ['mold_id'], name: 'index_conditions_on_mold_id'
+  end
 
   create_table 'machines', force: :cascade do |t|
     t.string 'name', null: false
@@ -38,5 +75,7 @@ ActiveRecord::Schema.define(version: 20_200_914_155_209) do
     t.datetime 'updated_at', precision: 6, null: false
   end
 
+  add_foreign_key 'conditions', 'machines'
+  add_foreign_key 'conditions', 'molds'
   add_foreign_key 'molds', 'products'
 end

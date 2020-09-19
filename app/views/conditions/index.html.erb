@@ -1,0 +1,8 @@
+<% provide(:title, "条件表一覧") %>
+<div class="d-flex justify-content-end">
+  <%= link_to new_condition_path, class: "btn btn-sm btn-outline-secondary mb-3" do %>
+    <i class="fas fa-plus"></i>
+    条件表の新規登録
+  <% end %>
+</div>
+<%= react_component("Conditions") %>

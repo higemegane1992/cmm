@@ -20,8 +20,8 @@
           <li class="nav-item <%= "active" if controller.controller_name == "" %>">
             <%= link_to "ロギングデータ", "#", class: "nav-link" %>
           </li>
-          <li class="nav-item <%= "active" if controller.controller_name == "" %>">
-            <%= link_to "条件表", "#", class: "nav-link" %>
+          <li class="nav-item <%= "active" if controller.controller_name == "conditions" %>">
+            <%= link_to "条件表", conditions_path, class: "nav-link" %>
           </li>
           <li class="nav-item <%= "active" if controller.controller_name == "products" %>">
             <%= link_to "品種", products_path, class: "nav-link" %>
@@ -37,7 +37,7 @@
         <div class="d-none d-md-block w-25 bg-light border-right">
           <aside class="list-group list-group-flush">
             <%= link_to "ロギングデータ", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
-            <%= link_to "条件表", "#", class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == ""}" %>
+            <%= link_to "条件表", conditions_path, class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == "conditions"}" %>
             <%= link_to "品種", products_path, class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == "products"}" %>
             <%= link_to "生産ライン", machines_path, class: "list-group-item list-group-item-action bg-light font-weight-bold #{"text-primary" if controller.controller_name == "machines"}" %>
           </aside>
