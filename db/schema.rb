@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_200_916_115_557) do
+ActiveRecord::Schema.define(version: 20_200_919_104_007) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
 
@@ -53,6 +53,24 @@ ActiveRecord::Schema.define(version: 20_200_916_115_557) do
     t.index ['mold_id'], name: 'index_conditions_on_mold_id'
   end
 
+  create_table 'logs', force: :cascade do |t|
+    t.bigint 'machine_id', null: false
+    t.bigint 'mold_id', null: false
+    t.decimal 'lis', null: false
+    t.decimal 'his', null: false
+    t.integer 'sup', null: false
+    t.integer 'cp', null: false
+    t.integer 'bt', null: false
+    t.integer 'ssp', null: false
+    t.integer 'dev', null: false
+    t.integer 'fmf', null: false
+    t.integer 'mmf', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['machine_id'], name: 'index_logs_on_machine_id'
+    t.index ['mold_id'], name: 'index_logs_on_mold_id'
+  end
+
   create_table 'machines', force: :cascade do |t|
     t.string 'name', null: false
     t.datetime 'created_at', precision: 6, null: false
@@ -77,5 +95,7 @@ ActiveRecord::Schema.define(version: 20_200_916_115_557) do
 
   add_foreign_key 'conditions', 'machines'
   add_foreign_key 'conditions', 'molds'
+  add_foreign_key 'logs', 'machines'
+  add_foreign_key 'logs', 'molds'
   add_foreign_key 'molds', 'products'
 end
