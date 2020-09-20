@@ -7,4 +7,5 @@ class Mold < ApplicationRecord
 
   belongs_to :product
   has_many :conditions
+  has_many :logs
 end

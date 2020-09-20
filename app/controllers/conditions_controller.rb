@@ -4,8 +4,7 @@
 class ConditionsController < ApplicationController
   add_breadcrumb '条件表一覧', :conditions_path
 
-  def index
-  end
+  def index; end
 
   def search
     machine_ids = Machine.where('name LIKE(?)', "%#{params[:machine]}%").ids

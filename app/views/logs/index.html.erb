@@ -1,0 +1,6 @@
+<% provide(:title, "ロギングデータ") %>
+<div class="list-group mb-3">
+  <% @machines.each do |machine| %>
+    <%= link_to "#{machine.name}号機", log_path(machine, date: Date.today), class: "list-group-item list-group-item-action" %>
+  <% end %>
+</div>
