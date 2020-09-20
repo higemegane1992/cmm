@@ -54,7 +54,7 @@ class LogsController < ApplicationController
     mmf_s_data = []
     mmf_u_data = []
     mmf_l_data = []
-    
+
     @logs.each do |log|
       lis_data.push([log.created_at, log.lis])
       lis_s_data.push([log.created_at, condition.lis])
@@ -96,198 +96,198 @@ class LogsController < ApplicationController
 
     @lis = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: lis_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: lis_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: lis_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: lis_l_data,
         points: false
       }
     ]
     @his = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: his_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: his_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: his_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: his_l_data,
         points: false
       }
     ]
     @sup = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: sup_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: sup_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: sup_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: sup_l_data,
         points: false
       }
     ]
     @bt = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: bt_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: bt_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: bt_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: bt_l_data,
         points: false
       }
     ]
     @cp = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: cp_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: cp_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: cp_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: cp_l_data,
         points: false
       }
     ]
     @ssp = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: ssp_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: ssp_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: ssp_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: ssp_l_data,
         points: false
       }
     ]
     @dev = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: dev_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: dev_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: dev_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: dev_l_data,
         points: false
       }
     ]
     @fmf = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: fmf_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: fmf_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: fmf_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: fmf_l_data,
         points: false
       }
     ]
     @mmf = [
       {
-        name: "ロギングデータ",
+        name: 'ロギングデータ',
         data: mmf_data,
         points: false
       },
       {
-        name: "設定値",
+        name: '設定値',
         data: mmf_s_data,
         points: false
       },
       {
-        name: "上限値",
+        name: '上限値',
         data: mmf_u_data,
         points: false
       },
       {
-        name: "下限値",
+        name: '下限値',
         data: mmf_l_data,
         points: false
       }

@@ -2026,6 +2026,7 @@ Metrics/AbcSize:
   Exclude:
     - 'db/migrate/20200916115557_create_conditions.rb'
     - 'app/controllers/conditions_controller.rb'
+    - 'app/controllers/logs_controller.rb'
 
 Metrics/BlockLength:
   Description: 'Avoid long blocks with many lines.'
@@ -2044,6 +2045,7 @@ Metrics/BlockLength:
     - '**/*.gemspec'
     - 'db/migrate/20200916115557_create_conditions.rb'
     - 'db/schema.rb'
+    - 'app/controllers/logs_controller.rb'
 
 Metrics/BlockNesting:
   Description: 'Avoid excessive block nesting.'
@@ -2062,6 +2064,8 @@ Metrics/ClassLength:
   CountComments: false  # count full line comments?
   Max: 100
   CountAsOne: []
+  Exclude:
+    - 'app/controllers/logs_controller.rb'
 
 # Avoid complex methods.
 Metrics/CyclomaticComplexity:
@@ -2090,6 +2094,7 @@ Metrics/MethodLength:
     - 'bin/bundle'
     - 'db/migrate/20200916115557_create_conditions.rb'
     - 'db/migrate/20200919104007_create_logs.rb'
+    - 'app/controllers/logs_controller.rb'
 
 Metrics/ModuleLength:
   Description: 'Avoid modules longer than 100 lines of code.'

@@ -32,7 +32,7 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'breadcrumbs_on_rails'
 gem 'chartkick'
-gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master'
+gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'react-rails'
 
 group :development, :test do
