@@ -40,6 +40,7 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
   gem 'rspec-rails'
+  gem 'rspec_junit_formatter'
   gem 'rubocop', require: false
 end
 
