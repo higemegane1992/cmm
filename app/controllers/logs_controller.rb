@@ -16,6 +16,9 @@ class LogsController < ApplicationController
       machine_id: params[:id],
       created_at: Time.zone.parse(params[:date]).beginning_of_day..Time.zone.parse(params[:date]).end_of_day
     )
+
+    return true if @logs.blank?
+
     condition = Condition.find_by(machine_id: params[:id], mold_id: @logs[0].mold.id)
 
     lis_data = []

@@ -1,0 +1,39 @@
+<h2 class="h3 pb-1 mb-3 border-bottom">
+  <%= "#{Product.find(@logs[0].mold.product_id).name} #{@logs[0].mold.number}次型" %>
+</h2>
+<h3 class="h4 mb-3 border-bottom">低速速度</h3>
+<div class="mb-3">
+  <%= line_chart @lis, min: 0.15, max: 0.35 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">高速速度</h3>
+<div class="mb-3">
+  <%= line_chart @his, min: 2.5, max: 3.5 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">高速切替位置</h3>
+<div class="mb-3">
+  <%= line_chart @sup, min: 370, max: 390 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">鋳造圧力</h3>
+<div class="mb-3">
+  <%= line_chart @cp, min: 30, max: 50 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">昇圧時間</h3>
+<div class="mb-3">
+  <%= line_chart @bt, min: -500, max: 1500 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">真空開始位置</h3>
+<div class="mb-3">
+  <%= line_chart @ssp, min: 140, max: 160 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">真空度</h3>
+<div class="mb-3">
+  <%= line_chart @dev, min: 60, max: 140 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">固定型冷却流量</h3>
+<div class="mb-3">
+  <%= line_chart @fmf, min: 30, max: 70 %>
+</div>
+<h3 class="h4 mb-3 border-bottom">可動型冷却流量</h3>
+<div class="mb-3">
+  <%= line_chart @mmf, min: 30, max: 70 %>
+</div>
