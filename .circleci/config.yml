@@ -64,7 +64,7 @@ workflows:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: ./docker/nginx/Dockerfile
-          repo: ccm-nginx-ecr
+          repo: cmm-nginx-ecr
           tag: "${CIRCLE_SHA1}"
           filters:
             branches:
@@ -72,10 +72,10 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'ccm-td_20200921'
+          family: 'cmm-td_20200921'
           cluster-name: '${ECS_ARN}'
-          service-name: 'ccm-sv'
-          container-image-name-updates: "container=ccm-nginx-ecr,tag=${CIRCLE_SHA1}"
+          service-name: 'cmm-sv'
+          container-image-name-updates: "container=cmm-nginx-ecr,tag=${CIRCLE_SHA1}"
   rails-deploy:
     jobs:
       - build
@@ -91,7 +91,7 @@ workflows:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
           create-repo: true
           dockerfile: ./docker/rails/Dockerfile
-          repo: ccm-rails-ecr
+          repo: cmm-rails-ecr
           tag: "${CIRCLE_SHA1}"
           filters:
             branches:
@@ -99,7 +99,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'ccm-td_20200921'
+          family: 'cmm-td_20200921'
           cluster-name: '${ECS_ARN}'
-          service-name: 'ccm-sv'
-          container-image-name-updates: "container=ccm-rails-ecr,tag=${CIRCLE_SHA1}"
+          service-name: 'cmm-sv'
+          container-image-name-updates: "container=cmm-rails-ecr,tag=${CIRCLE_SHA1}"
