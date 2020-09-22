@@ -83,7 +83,7 @@ test:
 #
 production:
   <<: *default
-  database: cmm_production
+  database: <%= ENV['DB_DATABASE'] %>
   host: <%= ENV['DB_HOST'] %>
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
