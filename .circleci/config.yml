@@ -72,7 +72,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'ccm-td'
+          family: 'ccm-td_20200921'
           cluster-name: '${ECS_ARN}'
           service-name: 'ccm-sv'
           container-image-name-updates: "container=ccm-nginx-ecr,tag=${CIRCLE_SHA1}"
@@ -99,7 +99,7 @@ workflows:
       - aws-ecs/deploy-service-update:
           requires:
             - aws-ecr/build-and-push-image
-          family: 'ccm-td'
+          family: 'ccm-td_20200921'
           cluster-name: '${ECS_ARN}'
           service-name: 'ccm-sv'
           container-image-name-updates: "container=ccm-rails-ecr,tag=${CIRCLE_SHA1}"
